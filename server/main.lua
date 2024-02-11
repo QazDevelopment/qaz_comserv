@@ -4,6 +4,8 @@ TriggerEvent('esx:getSharedObject', function(obj)
     ESX = obj
 end)
 
+local clearAllItems = true -- Set to true to clear all items, set to false to clear only weapons
+
 ESX.RegisterCommand('comserv', 'admin', function(xPlayer, args, showError)
     TriggerEvent('esx_comserv:sendToCommunityService', args.playerId.source, args.actions)
 end, false, {help = 'Give player community service', validate = true, arguments = {
@@ -183,6 +185,7 @@ function releaseFromCommunityService(target)
     end)
     TriggerClientEvent('esx_comserv:finishCommunityService', _source)
 end
+
 
 RegisterNetEvent('esx_comserv:clearInventory')
 AddEventHandler('esx_comserv:clearInventory', function(target)

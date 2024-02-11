@@ -67,7 +67,7 @@ AddEventHandler('esx_comserv:inCommunityService', function(actions_remaining)
     TriggerServerEvent('esx_comserv:clearInventory', target)
     LocalPlayer.state:set('teleport', true, true)
 
-    local playerPed = GetPlayerPed(target)
+    local playerPed = PlayerPedId()
 
     if isSentenced then return end
 
